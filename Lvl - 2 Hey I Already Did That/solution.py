@@ -1,24 +1,9 @@
-# def base_to_dec(num_str,base):
-#     num_str = num_str[::-1]
-#     num = 0
-#     for k in range(len(num_str)):
-#         dig = num_str[k]
-#         if dig.isdigit():
-#             dig = int(dig)
-#         else:    #Assuming its either number or alphabet only
-#             dig = ord(dig.upper())-ord('A')+10
-#         num += dig*(base**k)
-#     return num
-
 def solution(n, b):
-    def dec_to_base(num,base):
+    def dec_to_base(num, base):  # covert decimal to number of arbitrary base
         base_num = ""
-        while num>0:
-            dig = int(num%base)
-            if dig<10:
-                base_num += str(dig)
-            else:
-                base_num += chr(ord('A')+dig-10)
+        while num > 0:
+            dig = int(num % base)
+            base_num += str(dig)
             num //= base
 
         base_num = base_num[::-1]
@@ -36,5 +21,7 @@ def solution(n, b):
 
     return (len(minion_IDs) - minion_IDs.index(minion_ID))
 
+
 print(solution('210022', 3))
-# print((4-3)*'0' + dec_to_base(999, 10))
+print(solution('1211', 10))
+print(solution('2222', 3))
