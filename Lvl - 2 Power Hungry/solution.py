@@ -6,9 +6,9 @@ def solution(xs):
     positive = sorted(list(filter(lambda a: a > 0, xs)), reverse=True)
     negative = sorted(list(filter(lambda a: a < 0, xs)))
 
-    if (not(positive) and not(negative)) or ((0 in xs) and len(negative) == 1):
+    if ((0 in xs) and not(positive) and (not(negative) or len(negative) == 1)):
         return '0'
-    elif (not(positive) and len(negative) == 1):
+    elif (not(0 in xs) and not(positive) and len(negative) == 1):
         return str(negative[0])
 
     if len(negative) % 2 == 0:
